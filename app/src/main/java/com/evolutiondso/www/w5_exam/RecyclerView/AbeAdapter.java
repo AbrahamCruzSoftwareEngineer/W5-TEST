@@ -5,64 +5,58 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.evolutiondso.www.w5_exam.R;
+import com.evolutiondso.www.w5_exam.entities.SearchResult;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Albrtx on 15/11/2016.
  */
 
-public class AbeAdapter extends RecyclerView.Adapter<AbeAdapter.ViewHolder> {
+public class AbeAdapter extends RecyclerView.Adapter<SimpleAdapter> {
 
-    private ArrayList<String> mArrayList;
-    Context context;
+        List<SearchResult> list;
+        Context context;
 
+        public AbeAdapter(List<SearchResult> list, Context context) {
+            this.list = list;
+            this.context = context;
+        }
 
-    @Override
-    public AbeAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View termView = inflater.inflate(R.layout.item, parent, false);
-
-        return new ViewHolder(termView);
-    }
-
-    @Override
-    public void onBindViewHolder(AbeAdapter.ViewHolder holder, int position) {
-        String string = mArrayList.get(position);
-
-        TextView textViewName = holder.textViewName;
-        textViewName.setText(string);
-        holder.string = string;
-
-    }
+        public AbeAdapter(List<SearchResult> list) {
+            this.list = list;
+        }
 
 
-    public AbeAdapter(ArrayList<String> arrayList) {
-
-        this.mArrayList = arrayList;
-        this.context = context;
-    }
 
     @Override
-    public int getItemCount() {
-        return mArrayList.size();
-    }
-
-    //All the inner clases to set them to STATIC to avoid memory Leaks
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-
-        private static final String TAG = "MYTAG";
-        public final TextView textViewName;
-        public String string;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            textViewName = (TextView) itemView.findViewById(R.id.r_item_text);
+        public SimpleAdapter onCreateViewHolder(ViewGroup parent, int viewType) {
+            //Inflate the layout, initialize the View Holder
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
+            SimpleAdapter holder = new SimpleAdapter(v);
+            return holder;
 
         }
 
+        @Override
+        public void onBindViewHolder(SimpleAdapter holder, int position) {
+
+            //Use the provided View Holder on the onCreateViewHolder method to populate the current row on the RecyclerView
+            holder.name.setText(list.get(position).getListing().getName());
+
+        }
+
+        @Override
+        public int getItemCount() {
+            //returns the number of elements the RecyclerView will display
+            return list.size();
+        }
+
+        @Override
+        public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+            super.onAttachedToRecyclerView(recyclerView);
+        }
+
     }
-}

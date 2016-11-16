@@ -9,6 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#33cccc"
     tools:context="com.evolutiondso.www.w5_exam.MainActivity">
 
 
@@ -23,12 +24,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="START SHOWING"
+    android:onClick="ButtonMagic"
     android:layout_marginBottom="@dimen/activity_horizontal_margin"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/a_main_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#6A9"
+        android:background="#33ccff"
         />
 </LinearLayout>

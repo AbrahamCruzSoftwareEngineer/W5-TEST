@@ -12,7 +12,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Albrtx on 15/11/2016.
  */
-
+//MY HOLDER
 public class SimpleAdapter extends RecyclerView.ViewHolder {
     @BindView(R.id.r_item_text)
     TextView name;
