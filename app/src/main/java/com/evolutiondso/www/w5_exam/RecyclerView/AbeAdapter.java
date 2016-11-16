@@ -1,10 +1,13 @@
-package com.evolutiondso.www.w5_exam;
+package com.evolutiondso.www.w5_exam.RecyclerView;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.evolutiondso.www.w5_exam.R;
 
 import java.util.ArrayList;
 
@@ -15,6 +18,7 @@ import java.util.ArrayList;
 public class AbeAdapter extends RecyclerView.Adapter<AbeAdapter.ViewHolder> {
 
     private ArrayList<String> mArrayList;
+    Context context;
 
 
     @Override
@@ -39,6 +43,7 @@ public class AbeAdapter extends RecyclerView.Adapter<AbeAdapter.ViewHolder> {
     public AbeAdapter(ArrayList<String> arrayList) {
 
         this.mArrayList = arrayList;
+        this.context = context;
     }
 
     @Override
